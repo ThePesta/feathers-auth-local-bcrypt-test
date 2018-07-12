@@ -23,10 +23,10 @@ const main = async () => {
     try {
       const startTime = Date.now()
       await server.service('users').create(user)
-      const totalTime = Date.now() - startTime
-      return { ...user, totalTime }
+      const totalTime = `${Date.now() - startTime}ms`
+      return { email: user.email, totalTime }
     } catch (e) {
-      return {...user, error: e.message }
+      return { email: user.email, error: e.message }
     }
   })
 

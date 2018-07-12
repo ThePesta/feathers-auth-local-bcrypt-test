@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node server/index.js",
+    "start": "node bcryptjs/index.js",
+    "start:bcrypt": "node bcrypt/index.js",
     "client": "node client/index.js"
   },
   "author": "",
@@ -14,6 +15,7 @@
     "@feathersjs/authentication-client": "^1.0.2",
     "@feathersjs/authentication-jwt": "^2.0.1",
     "@feathersjs/authentication-local": "^1.2.1",
+    "@thepesta/authentication-local": "github:thepesta/authentication-local#custom-name",
     "@feathersjs/express": "^1.2.3",
     "@feathersjs/feathers": "^3.1.7",
     "@feathersjs/socketio": "^3.2.2",
