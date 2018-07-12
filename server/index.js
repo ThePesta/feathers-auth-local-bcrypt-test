@@ -82,3 +82,7 @@ app.listen(3031).on('listening', () => {
   }
   endlessPrintout()
 })
+
+require('blocked-at')((time, stack) => {
+  console.log(`Blocked for ${time}ms, operation started here:`)
+}, { threshold: 100 })

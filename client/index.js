@@ -1,7 +1,7 @@
 const { times, map } = require('lodash')
 const serverUrl = 'http://localhost:3031'
 
-const usersSignInData = times(8, num => ({
+const usersSignInData = times(7, num => ({
   email: `${num + 1}@example.com`,
   password: '12345'
 }))
