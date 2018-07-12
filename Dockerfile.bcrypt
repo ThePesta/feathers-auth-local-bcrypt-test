@@ -3,5 +3,5 @@ RUN mkdir /feathers-auth-local-test
 WORKDIR /feathers-auth-local-test
 COPY . /feathers-auth-local-test
 EXPOSE 3032
-RUN ["npm", "install"]
+RUN npm install
 RUN ["npm", "run", "start:bcrypt"]

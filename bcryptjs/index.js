@@ -78,11 +78,11 @@ app.listen(3031).on('listening', () => {
   const endlessPrintout = async () => {
     console.log(moment().format())
     await sleep(1000)
-    endlessPrintout()
+    //endlessPrintout()
   }
-  endlessPrintout()
+  //endlessPrintout()
 })
 
-require('blocked-at')((time, stack) => {
-  console.log(`Blocked for ${time}ms, operation started here:`)
-}, { threshold: 100 })
+//require('blocked-at')((time, stack) => {
+  //console.log(`Blocked for ${time}ms, operation started here:${stack}`)
+//}, { threshold: 100 })
