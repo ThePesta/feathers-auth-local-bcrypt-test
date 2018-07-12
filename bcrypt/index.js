@@ -72,8 +72,8 @@ app.on('connection', connection => app.channel('everybody').join(connection))
 // Publish all events to the `everybody` channel
 
 const sleep = require('util').promisify(setTimeout)
-app.listen(3031).on('listening', () => {
-  console.log('Feathers server listening on localhost:3031')
+app.listen(3032).on('listening', () => {
+  console.log('Feathers server listening on localhost:3032')
   const moment = require('moment')
   const endlessPrintout = async () => {
     console.log(moment().format())
