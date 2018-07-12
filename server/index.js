@@ -49,12 +49,12 @@ usersService.hooks({
   }
 })
 
-usersService.create(times(5, num => (
-  {
-    email: `${num + 1}@example.com`,
-    password: '12345'
-  }
-)))
+//usersService.create(times(5, num => (
+  //{
+    //email: `${num + 1}@example.com`,
+    //password: '12345'
+  //}
+//)))
 
 app.service('authentication').hooks({
   before: {
@@ -71,6 +71,14 @@ app.use(express.errorHandler())
 app.on('connection', connection => app.channel('everybody').join(connection))
 // Publish all events to the `everybody` channel
 
+const sleep = require('util').promisify(setTimeout)
 app.listen(3031).on('listening', () => {
   console.log('Feathers server listening on localhost:3031')
+  const moment = require('moment')
+  const endlessPrintout = async () => {
+    console.log(moment().format())
+    await sleep(1000)
+    endlessPrintout()
+  }
+  endlessPrintout()
 })
