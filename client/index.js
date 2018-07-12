@@ -1,14 +1,14 @@
 const { times, map } = require('lodash')
 const serverUrl = 'http://localhost:3031'
+const numberOfUsers = process.env.NUMBER_OF_USERS || 5
 
-const usersSignInData = times(7, num => ({
+const usersSignInData = times(numberOfUsers, num => ({
   email: `${num + 1}@example.com`,
   password: '12345'
 }))
 
-
 const main = async () => {
-  console.log('START')
+  console.log('START num of users: ', numberOfUsers)
   const signInPromises = map(usersSignInData, async (user) => {
     const feathers = require('@feathersjs/feathers')
     const socketio = require('@feathersjs/socketio-client')
