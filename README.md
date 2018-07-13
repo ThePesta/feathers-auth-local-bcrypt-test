@@ -52,8 +52,17 @@ Fixed number of requests are fired together and the response times for each requ
 ### Sustained results
 A fixed number of requests are fired per second for 30 seconds, the response times for each request is recorded
 
-![Bcryptjs](charts/sustained_bcrypt.png)
+#### Bcryptjs (1 core)
+![Bcryptjs](charts/sustained_bcryptjs.png)
 
+#### Bcrypt (1 core)
+![Bcrypt1c](charts/sustained_bcrypt.png)
+
+#### Bcrypt (2 core)
+![Bcrypt2c](charts/sustained_bcrypt_2_core.png)
+
+#### Bcrypt (4 core)
+![Bcrypt4c](charts/sustained_bcrypt_4_core.png)
 
 ## Setup
 ```
