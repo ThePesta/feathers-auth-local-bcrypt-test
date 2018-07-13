@@ -18,7 +18,8 @@
 *max signups is number of clients before a single timeout occurs*
 
 
-### Raw results
+### Simultaneous results
+Fixed number of requests are fired together and the response times for each request is recorded
 
 #### Bcryptjs
 | Requests | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
@@ -48,6 +49,11 @@
 | Min time (ms) | 503 | 492 | 508 | 516 | 516 | 525 | 525 | 553 | 540 | 542 | 577 | 585 | 607 | 700 | 672 | 658 |
 | Max time (ms) | 503 | 497 | 510 | 541 | 991 | 1030 | 1012 | 1111 | 1517 | 1626 | 2305 | 2928 | 3596 | 4252 | 4836 | 4878 |
 
+### Sustained results
+A fixed number of requests are fired per second for 30 seconds, the response times for each request is recorded
+
+![Bcryptjs](charts/sustained_bcrypt.png)
+
 
 ## Setup
 ```
@@ -66,13 +72,24 @@ npm start
 npm run start:bcrypt
 ```
 
-## Run client
+## Run simultaneous client
+*Performs # requests all at once*
 
 ```
-npm run client // OPTIONAL NUMBER_OF_USERS=# BCRYPT=1 OR 0
+npm run client
 // allows env variables
 // NUMBER OF USERS=# (default: 5)
-// BCRYPT=1 OR 0 (1 = bcrypt, 0 = bcryptjs)
+// BCRYPT=1 OR 0 (1 = bcrypt, 0 = bcryptjs, default = 0)
+```
+
+## Run sustained client
+*Performs # requests per second over a duration*
+
+```
+npm run client:
+// allows env variables
+// REQUESTS PER SECOND (any number, default 5)
+// DURATION (any number, default 30 seconds)
 ```
 
 ## Run server with bcrypt in docker
@@ -80,4 +97,5 @@ npm run client // OPTIONAL NUMBER_OF_USERS=# BCRYPT=1 OR 0
 ```
 docker build --network=host --cpuset-cpus=0,1,2,3 -f Dockerfile.bcrypt -t feathers-auth-local-bcrypt .
 // change --cpuset-cpus=0 for single core
+// I have no clue why it's running off the build command ¯\_(ツ)_/¯
 ```
